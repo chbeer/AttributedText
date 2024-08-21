@@ -22,7 +22,7 @@ public struct AttributedText: View {
     /// - Parameters:
     ///   - text: NSAttributedString to show
     ///   - imageFactory: Optional image factory that generates images from NSTextAttachment
-    public init(text: NSAttributedString, imageFactory: AttachmentImageFactory? = nil) {
+    public init(_ text: NSAttributedString, imageFactory: AttachmentImageFactory? = nil) {
         self.text = text
         self.imageFactory = imageFactory ?? AttributedText.defaultAttachmentImageFactory
     }
@@ -60,7 +60,11 @@ public struct AttributedText: View {
 let previewText: NSAttributedString =  {
     let attr = NSMutableAttributedString()
     
+#if canImport(AppKit)
+    let imgAttachment = NSTextAttachment(image: NSImage(systemSymbolName: "clock", accessibilityDescription: "Clock")!)
+#else
     let imgAttachment = NSTextAttachment(image: UIImage(systemName: "clock")!)
+#endif
     
     attr.append(NSAttributedString(string: "It's 10 o"))
     attr.append(NSAttributedString(attachment: imgAttachment))
@@ -70,6 +74,6 @@ let previewText: NSAttributedString =  {
 }()
 
 #Preview {
-    AttributedText(text: previewText)
+    AttributedText(previewText)
 }
 

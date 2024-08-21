@@ -16,6 +16,8 @@ extension NSAttributedString {
     
     /// Creates an array of AttributedRun by enumerating the attributes of the NSAttributedString
     var runs: [AttributedRun] {
+        guard string.count > 0 else { return [] }
+        
         var runs: [AttributedRun] = []
         var index = 0
         var range = NSRange(location: 0, length: 0)

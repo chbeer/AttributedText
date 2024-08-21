@@ -6,7 +6,7 @@ let package = Package(
     name: "AttributedText",
     platforms: [
         .iOS(.v15),
-        .macOS(.v10_13)
+        .macOS(.v12)
     ],
     products: [
         .library(

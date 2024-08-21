@@ -4,7 +4,7 @@ A replacement for `Text(AttributedString(…))` that renders `NSTextAttachment`s
 
 ## Installation
 
-Supports iOS 13.0+ and macOS 10.12+
+Supports iOS 13.0+ and macOS 10.15+
 
 ### Swift Package Manager
 
